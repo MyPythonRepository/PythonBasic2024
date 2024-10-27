@@ -27,6 +27,7 @@ print(digit2)
 print(digit3)
 print(digit4)
 print(digit5)
+print()
 
 reversed_user_input = digit1 * 10000 + digit2 * 1000 + digit3 * 100 + digit4 * 10 + digit5
 
