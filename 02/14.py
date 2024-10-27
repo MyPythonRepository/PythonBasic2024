@@ -8,3 +8,5 @@ print(type(a))
 b = int(input('Enter your age: '))
 
 print(b + 10)
+
+# input завжди повертає str
