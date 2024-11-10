@@ -28,7 +28,7 @@ while True:
     else:
         print("Invalid operator!")
 
-    continue_calculation = input("Would you like to perform another calculation? If yes, please enter 'y': ")
+    continue_calculation = input("Would you like to perform another calculation? If yes, please enter 'y': ").lower()
     if continue_calculation != "y":
         print("Have a great day!")
         break
