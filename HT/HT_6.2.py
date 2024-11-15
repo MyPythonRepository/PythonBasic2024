@@ -1,7 +1,8 @@
 # Ваше завдання — написати програму, яка переводить число у формат часу у
 # читальному вигляді. Користувач повинен ввести число більше або дорівнює 0 і
 # менше ніж 8640000. Число, яке є кількістю секунд, необхідно перевести в дні,
-# години, хвилини та секунди. Ну і додатковим завданням є турбота про виведення.
+# години, хвилини та секунди. Ну і додатковим завданням є
+# турбота про виведення.
 #
 # Слово "день" підбирається на основі кількості днів, а години, хвилини і
 # секунди повинні заповнюватися нулями при одноцифрових значеннях.
@@ -21,3 +22,29 @@
 # 8639999 -> 99 днів, 23:59:59
 # 22493 -> 0 днів, 06:14:53
 # 7948799 -> 91 день, 23:59:59
+
+user_input = int(input("Please enter a number from 0 to < 8640000: "))
+
+if 0 <= user_input < 8640000:
+    seconds_in_minute = 60
+    seconds_in_hour = 60 * 60
+    seconds_in_day = 24 * 60 * 60
+
+    days, remainder = divmod(user_input, seconds_in_day)
+    hours, remainder = divmod(remainder, seconds_in_hour)
+    minutes, seconds = divmod(remainder, seconds_in_minute)
+
+    if days % 10 == 1 and days % 100 != 11:
+        day = "день"
+    elif 2 <= days % 10 <= 4 and not (12 <= days % 100 <= 14):
+        day = "дні"
+    else:
+        day = "днів"
+
+    hours = str(hours).zfill(2)
+    minutes = str(minutes).zfill(2)
+    seconds = str(seconds).zfill(2)
+
+    print(f"{days} {day}, {hours}:{minutes}:{seconds}")
+else:
+    print("Invalid input! Please try again.")
