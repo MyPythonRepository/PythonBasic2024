@@ -20,18 +20,9 @@
 # correct_sentence("greetings, friends.") -> "Greetings, friends."
 
 def correct_sentence(text):
-    sentences = text.split('.')
-
-    new_sentences = []
-    for sentence in sentences:
-        sentence = sentence.strip()
-        if sentence:
-            sentence = sentence[0].upper() + sentence[1:]
-            if not sentence.endswith('.'):
-                sentence += '.'
-            new_sentences.append(sentence)
-
-    return ' '.join(new_sentences)
+    if not text.endswith("."):
+        text += "."
+    return text[0].capitalize() + text[1:]
 
 
 assert correct_sentence("greetings, friends") == "Greetings, friends.", 'Test1'

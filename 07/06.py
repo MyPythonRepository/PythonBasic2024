@@ -1,15 +1,18 @@
-text = 'should, I subscribe? Yes. should, I subscribe? Yes!'
-sentences = text.split('.')
+text = "Hello, hello"
+some_str = "lo"
+index1 = text.find(some_str)
+if index1 == -1:
+    print(None)
 
-new_sentences = []
-for sentence in sentences:
-    sentence = sentence.strip()
-    if sentence:
-        sentence = sentence[0].upper() + sentence[1:]
-        if not sentence.endswith('.'):
-            sentence += '.'
-        new_sentences.append(sentence)
+index2 = text.find(some_str, index1 + 1)
 
-print(' '.join(new_sentences))
+print(index2 if index2 != -1 else print(None))
+
+
+# assert second_index("sims", "s") == 3, 'Test1'
+# assert second_index("find the river", "find the river") == 12, 'Test2'
+# assert second_index("hi", "h") is None, 'Test3'
+# assert second_index("Hello, hello", "lo") == 10, 'Test4'
+
 
 
