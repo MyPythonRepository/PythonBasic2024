@@ -9,8 +9,8 @@
 
 
 def add_one(some_list):
-     num = int("".join(str(i) for i in some_list)) + 1
-     return [int(i) for i in str(num)]
+    num = int("".join(str(i) for i in some_list)) + 1
+    return [int(i) for i in str(num)]
 
 
 assert add_one([1, 2, 3, 4]) == [1, 2, 3, 5], 'Test1'
