@@ -13,3 +13,5 @@ assert is_even(2) == True, 'Test1'
 assert is_even(5) == False, 'Test2'
 assert is_even(0) == True, 'Test3'
 print('OK')
+
+https://www.youtube.com/playlist?list=PLUl4u3cNGP62A-ynp6v6-LGBCzeH3VAQB
