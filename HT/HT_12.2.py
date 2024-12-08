@@ -36,6 +36,7 @@ class User:
     def __str__(self):
         return f"{self.name} {self.surname}, Phone: {self.phone_number}"
 
+
 class Purchase:
     def __init__(self, user):
         self.user = user
