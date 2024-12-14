@@ -1,22 +1,14 @@
-# Створіть клас, що описує людину (створіть метод,
-# що виводить інформацію про людину).
-# На його основі створіть клас Студент
-# (перевизначте метод виведення інформації).
-# Створіть клас Група, екземпляр якого складається
-# з об'єктів класу Студент.
-# Реалізуйте методи додавання, видалення студента
-# та метод пошуку студента на прізвище.
-# Метод пошуку студента повинен повертати саме
-# екземпляр класу Студент, якщо студент є у групі, інакше - None.
+# Модифікуйте клас Група (завдання минулої лекції) так,
+# щоб при спробі додавання до групи більше 10-ти студентів,
+# було порушено виняток користувача.
 #
-# У методі видалення, використовуйте результат методу пошуку.
-# Тобто. потрібно скомбінувати ці два методи;)
-#
-# Визначте для групи метод str() для повернення
-# списку студентів у вигляді рядка.
-#
-# Нижче наведені заготовки, які необхідно доповнити.
+# Таким чином потрібно створити ще й виняток користувача для цієї ситуації.
+# І обробити його поза межами класу. Тобто. потрібно перехопити цей виняток,
+# при спробі додавання 11-го студента
 
+
+class GroupOverlimit(Exception):
+    pass
 
 class Human:
 
@@ -45,6 +37,8 @@ class Group:
         self.group = set()
 
     def add_student(self, student):
+        if len(self.group) >= 10:
+            raise GroupOverlimit(f"Group {self.number} already has 10 students!")
         if isinstance(student, Student):
             self.group.add(student)
 
@@ -52,7 +46,6 @@ class Group:
         for student in self.group:
             if student.last_name == last_name:
                 return student
-        # return None
 
     def delete_student(self, last_name):
         student = self.find_student(last_name)
@@ -61,7 +54,7 @@ class Group:
 
     def __str__(self):
         all_students = "\n".join(str(student) for student in self.group)
-        return f"Number:{self.number}\n{all_students} "
+        return f"Number:{self.number}\n{all_students}"
 
 st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
 st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
@@ -77,3 +70,14 @@ gr.delete_student('Taylor')
 print(gr)  # Only one student
 
 gr.delete_student('Taylor')  # No error!
+
+try:
+    gr = Group("PD1")
+    for i in range(15):
+        st = Student("Male", 20 + i, f"FirstName{i}", f"LastName{i}", f"RB{i}")
+        gr.add_student(st)
+        print(f"Student {st.first_name} added.")
+except GroupOverlimit as e:
+    print(f"Error: {e}")
+
+print(gr)

@@ -1,0 +1,2 @@
+class GroupOverlimit(Exception):
+    pass
