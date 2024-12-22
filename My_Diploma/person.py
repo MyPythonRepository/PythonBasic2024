@@ -21,7 +21,7 @@ class Person:
         date_formats = ["%d.%m.%Y", "%d %m %Y", "%d/%m/%Y", "%d-%m-%Y", "%Y-%m-%d"]
         for date_format in date_formats:
             try:
-                return (date_str, date_format).date()
+                return datetime.strptime(date_str, date_format).date()
             except ValueError:
                 continue
         raise ValueError("Invalid date format!")
