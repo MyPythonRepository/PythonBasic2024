@@ -21,25 +21,19 @@ class Fraction:
 
     def __mul__(self, other):
         if isinstance(other, Fraction):
-            result = Fraction(self.a * other.a, self.b * other.b)
-            result.simplify()
-            return result
+            return Fraction(self.a * other.a, self.b * other.b)
 
     def __add__(self, other):
         if isinstance(other, Fraction):
             numerator = self.a * other.b + other.a * self.b
             denominator = self.b * other.b
-            result = Fraction(numerator, denominator)
-            result.simplify()
-            return result
+            return Fraction(numerator, denominator)
 
     def __sub__(self, other):
         if isinstance(other, Fraction):
             numerator = self.a * other.b - other.a * self.b
             denominator = self.b * other.b
-            result = Fraction(numerator, denominator)
-            result.simplify()
-            return result
+            return Fraction(numerator, denominator)
 
     def __eq__(self, other):
         if isinstance(other, Fraction):
