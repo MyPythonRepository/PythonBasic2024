@@ -38,5 +38,5 @@ class Person:
         age_str = f"{age} year old." if age == 1 else f"{age} years old."
         gender_str = f"Gender: {'Male.' if self.gender == 'm' else 'Female.'}" if self.gender else ""
         birth_date_str = self.birth_date.strftime("%d.%m.%Y.")
-        death_date_str = f"Died: {self.death_date.strftime("%d.%m.%Y.")}" if self.death_date else ""
+        death_date_str = f"Died: {self.death_date.strftime('%d.%m.%Y.')}" if self.death_date else ""
         return f"{self.first_name:<10} {self.family_name:<10} {self.patronymic:<10} {age_str:<15} {gender_str:<15} Born: {birth_date_str:<10} {death_date_str:<10}"
